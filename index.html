@@ -9,27 +9,16 @@
 body{
 margin:0;
 font-family:Arial;
+background:#000;
 color:white;
 overflow:hidden;
-
-/* 💖 خلفية بينك رومانسية */
-background: linear-gradient(135deg, #ff4da6, #ffb6e6, #ff66c4);
-background-size: 400% 400%;
-animation: bgMove 10s ease infinite;
-}
-
-/* حركة الخلفية */
-@keyframes bgMove{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
 }
 
 /* ===== CINEMATIC INTRO ===== */
 #intro{
 position:fixed;
 width:100%;height:100%;
-background:transparent;
+background:black;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -39,11 +28,11 @@ animation:fadeOut 1s ease 5s forwards;
 }
 #intro h1{
 font-size:70px;
-color:#ffffff;
+color:#e50914;
 animation:zoom 2s ease;
 letter-spacing:3px;
 }
-#intro p{opacity:0.9}
+#intro p{opacity:0.7}
 
 @keyframes zoom{
 from{transform:scale(0.5);opacity:0}
@@ -85,7 +74,7 @@ filter:blur(2px);
 position:fixed;
 top:0;left:0;
 width:100%;height:100%;
-background:rgba(0,0,0,0.25);
+background:rgba(0,0,0,0.55);
 z-index:-2;
 }
 
@@ -105,7 +94,7 @@ to{transform:translateY(110vh)}
 }
 
 .heart{
-color:#ff1a8c;
+color:#e50914;
 animation:float 6s linear infinite;
 }
 @keyframes float{
@@ -131,7 +120,7 @@ from{opacity:0;transform:scale(0.9)}
 to{opacity:1;transform:scale(1)}
 }
 
-h1{color:#ffffff;font-size:42px;}
+h1{color:#e50914;font-size:42px;}
 
 p{
 max-width:850px;
@@ -146,7 +135,7 @@ button{
 padding:12px 25px;
 border:none;
 border-radius:10px;
-background:#ff2f92;
+background:#e50914;
 color:white;
 font-size:18px;
 cursor:pointer;
@@ -174,7 +163,7 @@ transition:0.3s;
 
 .caption{
 font-size:14px;
-opacity:0.9;
+opacity:0.8;
 margin-top:5px;
 max-width:200px;
 }
@@ -184,7 +173,7 @@ max-width:200px;
 position:fixed;
 top:10px;
 right:10px;
-background:rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.1);
 padding:10px;
 border-radius:10px;
 }
@@ -204,12 +193,12 @@ padding:10px;
 border-radius:10px;
 }
 
-/* ===== SURPRISE PAGE ===== */
+/* ===== SURPRISE PAGE (رجعت هنا صح) ===== */
 #surprise{
 position:fixed;
 top:0;left:0;
 width:100%;height:100%;
-background:rgba(255,105,180,0.95);
+background:rgba(0,0,0,0.95);
 display:none;
 justify-content:center;
 align-items:center;
@@ -221,7 +210,7 @@ animation:fade 1s ease;
 }
 
 #surprise h1{
-color:white;
+color:#e50914;
 font-size:50px;
 }
 
@@ -239,10 +228,157 @@ p{font-size:16px;}
 .menu{transform:scale(0.9);}
 button{font-size:14px;}
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- باقي الكود زي ما هو بدون تغيير -->
+<!-- BACKGROUND -->
+<div class="bg">
+<img src="1.jpg">
+<img src="2.jpg">
+<img src="3.jpg">
+<img src="4.jpg">
+</div>
+<div class="overlay"></div>
+
+<!-- INTRO -->
+<div id="intro">
+<h1>katkoty</h1>
+<p>katkota Series 🎬 Ultimate Edition</p>
+</div>
+
+<!-- MUSIC -->
+<div class="music">
+<button onclick="toggleMusic()">🎵 Music</button>
+
+<audio id="audio" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+</div>
+
+<div class="menu">
+<button onclick="go(1)">EP1</button>
+<button onclick="go(2)">EP2</button>
+<button onclick="go(3)">EP3</button>
+<button onclick="go(4)">EP4</button>
+<button onclick="go(5)">Final</button>
+</div>
+
+<!-- EP1 -->
+<div class="episode active" id="e1">
+<h1>Episode 1</h1>
+<p>أنا عارف إني غلطت، ومستهلش اي حاجه بتعمليها معيا بس أنا بتاسف بجد من كل قلبي بجد</p>
+<button onclick="go(2)">Next</button>
+</div>
+
+<!-- EP2 -->
+<div class="episode" id="e2">
+<h1>Episode 2</h1>
+<p>انا مش هقولك هبقي ملاك وكل دا طبيعي اغلط بس اوعدك ان لو غلط بعد كدا هيكون غلط صغير وحاول مغلطش وزعلك مني تاني انا هعمل كل حاجه تريحك أنا مش عايز غير فرصة أعدل نفسي وأثبتلك إني أقدر أكون أحسن عشانك</p>
+<button onclick="go(3)">Next</button>
+</div>
+
+<!-- EP3 -->
+<div class="episode" id="e3">
+<h1>Episode 3 - Memories</h1>
+<div class="gallery">
+<div>
+<img src="6.jpg">
+<p class="caption"> بصي كلامك دا محفور جوايا وعمري ما هنسي مهمه حصل 💙</p>
+</div>
+<div>
+<img src="7.jpg">
+<p class="caption">نا لسه شايفك أهم حد في حياتي ومش عايز أخسرك أبداً ❤️</p>
+</div>
+<div>
+<img src="8.jpg">
+<p class="caption">والصوره العبيطه دي هفضل محتفظ بيها لحد ما نتصور وحده بجد</p>
+</div>
+</div>
+<button onclick="go(4)">Next</button>
+</div>
+
+<!-- EP4 -->
+<div class="episode" id="e4">
+<h1>Episode 4</h1>
+<p>أنا آسف على كل حاجة زعلتك، وبتمنى أصلح كل اللي فات  
+وجودك أهم حاجة في حياتي، وهحاول أثبتلك ده كل يوم</p>
+<button onclick="go(5)">Final</button>
+</div>
+
+<!-- EP5 -->
+<div class="episode" id="e5">
+<h1>Final</h1>
+<p>أنا مش بطلب غير فرصة واحدة بس أكون فيها شخص أفضل ليكي</p>
+</div>
+
+<!-- SURPRISE (رجعت بالكامل) -->
+<div id="surprise">
+<h1>قلبك ابيض وهتحني</h1>
+<p>
+أنا عارف إني غلطت، بس كل اللي جوايا كان حب حقيقي ليكي ❤️  
+لو في فرصة واحدة بس أنا هثبتلك إني أستاهلها  
+❤️وعمتا هفضل احاول علشانك العمر كله</p>
+</div>
+
+<script>
+
+function go(n){
+document.querySelectorAll('.episode').forEach(e=>e.classList.remove('active'));
+document.getElementById('e'+n).classList.add('active');
+}
+
+function toggleMusic(){
+let a=document.getElementById('audio');
+if(a.paused){a.play();}else{a.pause();}
+}
+
+/* stars */
+for(let i=0;i<100;i++){
+let s=document.createElement('div');
+s.className='star';
+s.style.left=Math.random()*100+'%';
+s.style.animationDuration=(Math.random()*6+3)+'s';
+document.body.appendChild(s);
+}
+
+/* hearts */
+setInterval(()=>{
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='❤️';
+h.style.left=Math.random()*100+'%';
+h.style.fontSize=(Math.random()*20+10)+'px';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},250);
+
+/* الموسيقى */
+window.addEventListener('load',()=>{
+let audio=document.getElementById('audio');
+audio.play().catch(()=>{
+document.body.addEventListener('click',()=>audio.play(),{once:true});
+});
+});
+
+/* المفاجأة */
+let shown=false;
+setInterval(()=>{
+if(document.getElementById('e5').classList.contains('active') && !shown){
+shown=true;
+setTimeout(()=>{
+document.getElementById('surprise').style.display='flex';
+},2000);
+}
+},500);
+
+/* intro */
+setTimeout(()=>{
+document.getElementById('intro').style.display='none';
+},5000);
+
+</script>
+
+</body>
+</html>
