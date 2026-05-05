@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>For Katie ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  text-align: center;
+  color: white;
+}
+
+/* شاشة البداية */
+#start {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#start button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: #ff4d6d;
+  cursor: pointer;
+}
+
+/* الصفحة الأساسية */
+#main {
+  display: none;
+  padding-top: 30px;
+}
+
+/* صورة */
+img {
+  width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px white;
+  transition: 0.5s;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+/* نص */
+#text {
+  margin: 20px;
+  font-size: 18px;
+}
+
+/* زرار */
+button {
+  margin: 10px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #ff4d6d;
+  cursor: pointer;
+}
+
+/* قلوب */
+.heart {
+  position: fixed;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  0% {transform: translateY(100vh);}
+  100% {transform: translateY(-10vh);}
+}
+
+/* زرار يهرب */
+#run {
+  position: absolute;
+}
+
+/* مفاجأة */
+#loveScreen {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(255,0,80,0.95);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  font-size:30px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- شاشة البداية -->
+<div id="start">
+  <h1>💖 عندي حاجة ليكي 💖</h1>
+  <button onclick="startSite()">اضغطي هنا</button>
+</div>
+
+<!-- الموقع -->
+<div id="main">
+
+<h1>❤️ لكِ يا كاتي ❤️</h1>
+
+<img id="slider" src="1.jpg">
+
+<div id="text"></div>
+
+<button onclick="window.open('https://youtu.be/HcodxmdesfY','_blank')">
+🎵 الأغنية
+</button>
+
+<br>
+
+<button onclick="showLove()">💌 مفاجأة</button>
+
+<br>
+
+<button id="run">سامحيني؟ 😅</button>
+
+</div>
+
+<!-- شاشة حب -->
+<div id="loveScreen">
+  <div>أنا بحبك جدًا جدًا ❤️</div>
+  <button onclick="closeLove()">ارجعي</button>
+</div>
+
+<script>
+
+/* بدء الموقع */
+function startSite(){
+  document.getElementById("start").style.display="none";
+  document.getElementById("main").style.display="block";
+}
+
+/* صور */
+let imgs=["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg"];
+let i=0;
+
+setInterval(()=>{
+  document.getElementById("slider").src=imgs[i];
+  i=(i+1)%imgs.length;
+},2000);
+
+/* كتابة */
+let msg="أنا عارف إني غلطت... بس بجد بحبك ومش عايز أخسرك ❤️";
+let j=0;
+
+function type(){
+  if(j<msg.length){
+    document.getElementById("text").innerHTML+=msg[j];
+    j++;
+    setTimeout(type,50);
+  }
+}
+type();
+
+/* قلوب */
+setInterval(()=>{
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},150);
+
+/* زرار يهرب 😂 */
+let btn=document.getElementById("run");
+
+btn.onmouseover=()=>{
+  btn.style.left=Math.random()*80+"%";
+  btn.style.top=Math.random()*80+"%";
+};
+
+/* مفاجأة */
+function showLove(){
+  document.getElementById("loveScreen").style.display="flex";
+}
+
+function closeLove(){
+  document.getElementById("loveScreen").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
